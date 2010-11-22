@@ -25,6 +25,9 @@ LOGINOPTIONS
 sub login_facebook : Path('/loginfacebook') : Args(0) {
     my ( $self, $c ) = @_;
     my $fb_app_id = '171501766212404';
+    # alterar as configuracoes do facebook no arquivo sppm_web.conf (ver exemplo de arquivo em Catalyst::Authentication::Credential::FBConnect)
+    # para testar na sua máquina, vc deve se registrar no developers.facebook.com e criar uma aplicação para ter um api_key, secret_key e app_name.
+    # atenção, ao criar a aplicação você deve utilizar o endereço onde o site será executado, por exemplo: "http://localhost:3000/", "http://www.meusite.com.br". Ou seja, tem que colocar a porta para funcionar.
     $c->stash( template => \<<FBLOGIN
     <p><fb:login-button autologoutlink="true"></fb:login-button></p>
     <p><fb:like></fb:like></p>
