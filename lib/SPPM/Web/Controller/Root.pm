@@ -33,7 +33,7 @@ sub base : Chained('/') : PathPart('') : CaptureArgs(0) {}
 sub auto :Private {
     my ($self, $c) =@_;
 
-    if ( $c->action eq $c->controller('Login')->action_for('login')
+    if ( $c->controller eq $c->controller('Login')
         || $c->action eq $c->controller('Root')->action_for('index')
 	|| $c->controller eq $c->controller('Artigos')
 	|| $c->controller eq $c->controller('Calendario')
@@ -63,11 +63,6 @@ sub auto :Private {
 
     # User found, so return 1 to continue with processing after this 'auto'
     return 1;
-    }
-
-sub hidden_page :Path('/hidden_page') :Args(0) {
-    my ( $self, $c ) = @_;
-    $c->stash( template => \'CONTEÚDO ESCONDIDO' );
     }
 
 sub index :Path :Args(0) {
