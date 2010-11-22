@@ -1,8 +1,10 @@
 package SPPM::Web::Controller::Root;
+use Moose;
 
-use strict;
-use warnings;
-use parent 'Catalyst::Controller';
+use namespace::autoclean;
+
+BEGIN {extends 'Catalyst::Controller'; }
+
 use utf8;
 
 #
@@ -95,5 +97,7 @@ This library is free software. You can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =cut
+
+__PACKAGE__->meta->make_immutable;
 
 1;
